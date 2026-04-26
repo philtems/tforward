@@ -1,0 +1,24 @@
+[package]
+name = "tforward"
+version = "1.0.0"
+edition = "2021"
+authors = ["Philippe TEMESI"]
+license = "MIT"
+description = "TCP port forwarder with blacklist support"
+homepage = "https://www.tems.be"
+
+[dependencies]
+tokio = { version = "1.42", features = ["full"] }
+clap = { version = "4.5", features = ["derive"] }
+ipnet = "2.10"
+chrono = "0.4"
+lazy_static = "1.5"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+split-debuginfo = "packed"
+strip = true
+incremental = true
